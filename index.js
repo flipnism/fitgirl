@@ -9,16 +9,16 @@ const PORT = process.env.PORT | 3031;
 
 const app = express();
 app.use(connectLivereload());
-app.use(express.static(path.join(__dirname,"/public")))
+app.use(express.static(path.join(process.cwd(),"/public")))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.set("views",path.join(__dirname,"views"));
+app.set("views",path.join(process.cwd(),"views"));
 app.set("view engine","pug")
 
 
 const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, 'public'));
+liveReloadServer.watch(path.join(process.cwd(), 'public'));
 liveReloadServer.server.once("connection", () => {
   setTimeout(() => {
     liveReloadServer.refresh("/");
