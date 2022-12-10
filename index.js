@@ -1,5 +1,5 @@
-const livereload = require("livereload");
-const connectLivereload = require("connect-livereload");
+// const livereload = require("livereload");
+// const connectLivereload = require("connect-livereload");
 const express = require("express");
 const path = require("path");
 const pug = require('pug');
@@ -8,7 +8,7 @@ const PORT = process.env.PORT | 3031;
 
 
 const app = express();
-app.use(connectLivereload());
+// app.use(connectLivereload());
 app.use(express.static(path.join(process.cwd(),"/public")))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,13 +17,13 @@ app.set("views",path.join(process.cwd(),"views"));
 app.set("view engine","pug")
 
 
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(process.cwd(), 'public'));
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
+// const liveReloadServer = livereload.createServer();
+// liveReloadServer.watch(path.join(process.cwd(), 'public'));
+// liveReloadServer.server.once("connection", () => {
+//   setTimeout(() => {
+//     liveReloadServer.refresh("/");
+//   }, 100);
+// });
 
 
 let rawdata = fs.readFileSync("gamelist.json", 'utf8');
