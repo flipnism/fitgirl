@@ -29,9 +29,6 @@ liveReloadServer.server.once("connection", () => {
 let rawdata = fs.readFileSync("gamelist.json");
 let data = JSON.parse(rawdata);
 
-function searchKey(key){
-  return data.data.includes(key);
-}
 
 app.post("/search",(req,res)=>{
   const key = req.body["search-key"];
