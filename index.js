@@ -26,7 +26,7 @@ liveReloadServer.server.once("connection", () => {
 });
 
 
-let rawdata = fs.readFileSync("gamelist.json");
+let rawdata = fs.readFileSync("gamelist.json", 'utf8');
 let data = JSON.parse(rawdata);
 
 
